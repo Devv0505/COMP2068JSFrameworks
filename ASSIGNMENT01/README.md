@@ -4,7 +4,7 @@ This is my personal portfolio website created using Node.js, Express, and Handle
 It includes 4 pages: Home, About Me, Projects, and Contact Me.
 
 ## Live Site
-[Link to live site](YOUR_RENDER_URL)
+https://comp2068jsframeworks-6upn.onrender.com
 
 ## GitHub Repository
 https://github.com/Devv0505/COMP2068JSFrameworks.git
