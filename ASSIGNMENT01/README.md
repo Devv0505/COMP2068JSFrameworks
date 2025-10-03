@@ -7,7 +7,7 @@ It includes 4 pages: Home, About Me, Projects, and Contact Me.
 [Link to live site](YOUR_RENDER_URL)
 
 ## GitHub Repository
-[Link to GitHub repo](YOUR_GITHUB_REPO_URL)
+https://github.com/Devv0505/COMP2068JSFrameworks.git
 
 ## External Sources
 - Bootstrap CDN
