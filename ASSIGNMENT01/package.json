@@ -2,6 +2,8 @@
   "name": "assignment01",
   "version": "0.0.0",
   "private": true,
+  "description": "Personal portfolio website using Express and HBS",
+  "author": "Dev Prajapati",
   "scripts": {
     "start": "node app.js"
   },
@@ -12,5 +14,8 @@
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }
