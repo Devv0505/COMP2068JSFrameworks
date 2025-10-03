@@ -12,7 +12,7 @@ prompt.get(['userSelection'], function (err, result) {
     }
 
     // Converting user input to uppercase to match options
-    let userSel = result.userSel.toUpperCase();
+    let userSel = result.userSelection.toUpperCase();
 
     //Generating computer selection using Math.random()
     let randomNumber = Math.random();

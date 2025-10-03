@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Devv0505/COMP2068JSFrameworks/issues"
   },
-  "homepage": "https://github.com/Devv0505/COMP2068JSFrameworks#readme"
+  "homepage": "https://github.com/Devv0505/COMP2068JSFrameworks#readme",
+  "dependencies": {
+    "prompt": "^1.3.0"
+  }
 }
