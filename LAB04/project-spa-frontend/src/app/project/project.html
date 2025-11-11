@@ -1,0 +1,43 @@
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Dev Prajapati – COMP2068 LAB04</span>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Project List</h2>
+
+
+  <div class="card p-3 mb-4">
+    <h5>Add New Project</h5>
+    <form (ngSubmit)="addProject()" #projectForm="ngForm" class="row g-2">
+      <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Project Name" [(ngModel)]="newProject.name" name="name" required>
+      </div>
+      <div class="col-md-4">
+        <input type="date" class="form-control" [(ngModel)]="newProject.dueDate" name="dueDate" required>
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control" placeholder="Course Code" [(ngModel)]="newProject.course" name="course" required>
+      </div>
+      <div class="col-md-1 d-grid">
+        <button type="submit" class="btn btn-success">+ Add</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let project of projects">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ project.name }}</h5>
+          <p class="card-text">
+            <strong>Course:</strong> {{ project.course }} <br>
+            <strong>Due Date:</strong> {{ project.dueDate }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
