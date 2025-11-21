@@ -1,43 +1,64 @@
+<h2 class="text-center mt-4">Project List</h2>
 
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Dev Prajapati – COMP2068 LAB04</span>
-  </div>
-</nav>
-
+<!-- ADD PROJECT -->
 <div class="container mt-4">
-  <h2 class="text-center mb-4">Project List</h2>
-
-
-  <div class="card p-3 mb-4">
+  <div class="card p-3">
     <h5>Add New Project</h5>
-    <form (ngSubmit)="addProject()" #projectForm="ngForm" class="row g-2">
-      <div class="col-md-4">
-        <input type="text" class="form-control" placeholder="Project Name" [(ngModel)]="newProject.name" name="name" required>
-      </div>
-      <div class="col-md-4">
-        <input type="date" class="form-control" [(ngModel)]="newProject.dueDate" name="dueDate" required>
+    <div class="row g-2 mt-2">
+      <div class="col-md-3">
+        <input class="form-control" placeholder="Project Name" [(ngModel)]="newProject.name">
       </div>
       <div class="col-md-3">
-        <input type="text" class="form-control" placeholder="Course Code" [(ngModel)]="newProject.course" name="course" required>
+        <input type="date" class="form-control" [(ngModel)]="newProject.dueDate">
       </div>
-      <div class="col-md-1 d-grid">
-        <button type="submit" class="btn btn-success">+ Add</button>
+      <div class="col-md-3">
+        <input class="form-control" placeholder="Course Code" [(ngModel)]="newProject.course">
       </div>
-    </form>
+      <div class="col-md-3">
+        <button class="btn btn-success w-100" (click)="addProject()">+ Add</button>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="row">
-    <div class="col-md-4 mb-3" *ngFor="let project of projects">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title">{{ project.name }}</h5>
-          <p class="card-text">
-            <strong>Course:</strong> {{ project.course }} <br>
-            <strong>Due Date:</strong> {{ project.dueDate }}
-          </p>
-        </div>
-      </div>
+<!-- PROJECT TABLE -->
+<div class="container mt-4">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Due Date</th>
+        <th>Course</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let p of projects">
+        <td>{{ p.name }}</td>
+        <td>{{ p.dueDate }}</td>
+        <td>{{ p.course }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="startEdit(p)">Edit</button>
+          <button class="btn btn-danger btn-sm ms-2" (click)="deleteProject(p._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- EDIT MODAL -->
+<div *ngIf="isEditing" class="modal-backdrop">
+  <div class="modal-card">
+    <h4>Edit Project</h4>
+
+    <input class="form-control mt-2" [(ngModel)]="editProjectData.name">
+    <input class="form-control mt-2" type="date" [(ngModel)]="editProjectData.dueDate">
+    <input class="form-control mt-2" [(ngModel)]="editProjectData.course">
+
+    <div class="mt-3 d-flex justify-content-between">
+      <button class="btn btn-primary" (click)="saveEdit()">Save</button>
+      <button class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
     </div>
   </div>
 </div>

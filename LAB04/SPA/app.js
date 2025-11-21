@@ -5,8 +5,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var cors = require('cors'); 
+var cors = require('cors');
+var mongoose = require('mongoose');
+require('dotenv').config();
 
+
+mongoose.connect(process.env.DB_CONNECTION)
+  .then(() => console.log("✅ Connected to MongoDB Atlas"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
 // Import route files
 
