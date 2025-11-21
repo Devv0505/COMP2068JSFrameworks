@@ -1,0 +1,164 @@
+/* ===============================
+   GLOBAL BASE STYLES
+================================= */
+body {
+    background: #f7f7f7;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+footer {
+    font-size: 14px;
+}
+
+/* ===============================
+   CARDS & UTILITIES
+================================= */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.badge {
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+/* ===============================
+   DASHBOARD PAGE
+================================= */
+.dashboard-title {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.add-expense-btn {
+    border-radius: 25px;
+    padding: 0 30px;
+}
+
+.chart-card {
+    max-width: 550px;
+    border-radius: 15px;
+    background: #ffffff;
+}
+
+.chart-container {
+    position: relative;
+    height: 350px;
+    width: 350px;
+    margin: 0 auto;
+}
+
+/* ===============================
+   TABLES (DASHBOARD + HOME)
+================================= */
+.modern-table {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.modern-table tbody tr:hover {
+    background-color: #f3f6f9;
+    transition: 0.15s ease-in-out;
+}
+
+.table-dark th {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    padding: 15px 0;
+}
+
+.category-text {
+    font-weight: 500;
+    color: #444;
+}
+
+.date-text {
+    color: #6c757d;
+}
+
+.home-table-wrapper {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* ===============================
+   HERO SECTION (HOME PAGE)
+================================= */
+.hero-section {
+    background: #f8fafc;
+    border-radius: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 30px;
+}
+
+/* Divider */
+.section-divider {
+    width: 70%;
+    margin: 40px auto;
+    border-top: 2px solid #e3e6eb;
+}
+
+/* ===============================
+   STAT CARDS
+================================= */
+.stat-card {
+    background: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* ===============================
+   ADD / EDIT EXPENSE FORM
+================================= */
+.expense-form-card {
+    max-width: 550px;
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    transition: 0.25s ease;
+}
+
+.expense-form-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.save-btn {
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+}
+
+.form-control-lg {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+label.form-label {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.modern-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-dark th {
+    text-align: center;
+}

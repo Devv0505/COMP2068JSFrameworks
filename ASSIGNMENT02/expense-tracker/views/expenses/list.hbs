@@ -1,0 +1,85 @@
+<h1 class="dashboard-title mb-4 text-center">My Expenses</h1>
+
+<div class="d-flex justify-content-center mb-4">
+    <a href="/expenses/add" class="btn btn-success btn-lg shadow-sm add-expense-btn">
+        + Add New Expense
+    </a>
+</div>
+
+<!-- Modern Chart Card -->
+<div class="chart-card shadow-sm p-4 mb-5 mx-auto">
+    <h4 class="text-center mb-4">Spending Breakdown by Category</h4>
+    <div class="chart-container">
+        <canvas id="expensesChart"></canvas>
+    </div>
+</div>
+
+<!-- Modern Table -->
+<div class="table-responsive">
+    <table class="table table-hover modern-table align-middle shadow-sm rounded">
+        <thead class="table-dark">
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th style="width: 150px">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each expenses}}
+            <tr>
+                <td class="fw-semibold">{{this.title}}</td>
+                <td class="category-text">{{this.category}}</td>
+                <td class="fw-bold text-success">${{this.amount}}</td>
+                <td>{{formatDatePretty this.date}}</td>
+
+
+                <td>
+                    <a href="/expenses/edit/{{this._id}}" class="btn btn-outline-primary btn-sm me-1">Edit</a>
+                    <a href="/expenses/delete/{{this._id}}" class="btn btn-outline-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<!-- Chart.js Script -->
+<script>
+  const labels = {{{chartLabels}}};
+  const data = {{{chartData}}};
+
+  const ctx = document.getElementById('expensesChart').getContext('2d');
+
+  new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels,
+          datasets: [{
+              data,
+              backgroundColor: [
+                  '#4e79a7', '#f28e2c', '#e15759',
+                  '#76b7b2', '#59a14f', '#edc949',
+                  '#af7aa1', '#ff9da7', '#9c755f', '#bab0ab'
+              ],
+              borderWidth: 2,
+              hoverOffset: 8
+          }]
+      },
+      options: {
+          plugins: {
+              legend: {
+                  position: 'bottom',
+                  labels: {
+                      padding: 20,
+                      font: {
+                          size: 14
+                      }
+                  }
+              }
+          }
+      }
+  });
+</script>

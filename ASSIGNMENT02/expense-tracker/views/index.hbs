@@ -1,0 +1,70 @@
+<div class="hero-section text-center py-5 mb-4">
+  <h1 class="display-5 fw-bold mb-3">Welcome to Expense Tracker</h1>
+  <p class="lead text-muted">
+    Track your expenses, visualize spending, and take control of your money.
+  </p>
+</div>
+
+<!-- ===========================
+       STAT CARDS
+=========================== -->
+<div class="container mb-5">
+  <div class="row g-4 justify-content-center">
+
+    <div class="col-md-4">
+      <div class="stat-card shadow-sm p-4 text-center rounded">
+        <h6 class="text-uppercase text-muted small">Total Records</h6>
+        <h2 class="fw-bold">{{totalCount}}</h2>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="stat-card shadow-sm p-4 text-center rounded">
+        <h6 class="text-uppercase text-muted small">Total Amount</h6>
+        <h2 class="fw-bold text-success">${{totalAmount}}</h2>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="stat-card shadow-sm p-4 text-center rounded">
+        <h6 class="text-uppercase text-muted small">Top Category</h6>
+        <h2 class="fw-bold">{{topCategory}}</h2>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="section-divider my-4" />
+
+<div class="container home-table-wrapper mb-5">
+  <h4 class="fw-semibold text-center mb-4">Recent Public Expenses (Read-Only)</h4>
+
+  <div class="table-responsive">
+    <table
+      class="table modern-table table-hover align-middle shadow-sm rounded"
+    >
+      <thead class="table-dark">
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Date</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {{#each recentExpenses}}
+          <tr>
+            <td class="fw-semibold">{{this.title}}</td>
+            <td class="category-text">{{this.category}}</td>
+            <td class="fw-bold text-success">${{this.amount}}</td>
+            <td class="date-text">{{formatDatePretty this.date}}</td>
+          </tr>
+          
+
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<h1 class="mb-4">Delete Expense</h1>
+
+<p>Are you sure you want to delete:</p>
+
+<ul>
+    <li><strong>{{expense.title}}</strong></li>
+    <li>Category: {{expense.category}}</li>
+    <li>Amount: ${{expense.amount}}</li>
+</ul>
+
+<form method="POST" action="/expenses/delete/{{expense._id}}">
+    <button class="btn btn-danger">Yes, Delete</button>
+    <a href="/expenses" class="btn btn-secondary">Cancel</a>
+</form>
