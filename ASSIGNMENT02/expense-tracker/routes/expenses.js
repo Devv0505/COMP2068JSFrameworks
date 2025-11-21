@@ -11,7 +11,8 @@ router.get('/', ensureAuth, async (req, res) => {
     .sort({ date: -1 })
     .lean();
 
-  // build totals by category for Chart.js
+// Adapted with assistance from ChatGPT:
+// This block calculates total expenses per category so the Chart.js pie chart can use the labels/data.
   const totals = {};
   expenses.forEach(e => {
     const cat = e.category.trim();

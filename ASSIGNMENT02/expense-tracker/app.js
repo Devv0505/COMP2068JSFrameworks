@@ -26,7 +26,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // Register Handlebars Helpers
-
+// Added with guidance from ChatGPT:
+// This helper formats dates into "Jan 1, 2025" for cleaner table display.
 hbs.registerHelper('formatDatePretty', function(date) {
   if (!date) return "";
   return new Date(date).toLocaleDateString('en-US', {
