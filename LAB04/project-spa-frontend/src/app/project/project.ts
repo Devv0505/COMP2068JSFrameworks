@@ -14,10 +14,9 @@ import { ProjectService } from '../services/project.service';
 export class Project implements OnInit {
 
   projects: any[] = [];
-
   newProject = { name: '', dueDate: '', course: '' };
 
-  // For editing
+  // Editing fields
   isEditing = false;
   editProjectData = { _id: '', name: '', dueDate: '', course: '' };
 
@@ -46,18 +45,17 @@ export class Project implements OnInit {
       next: (createdProject) => {
         console.log('✅ Project added:', createdProject);
 
-        this.projects.push(createdProject);
-
-        this.newProject = { name: '', dueDate: '', course: '' };
+        this.projects.push(createdProject);  // update UI instantly
+        this.clearForm();
       },
       error: (err) => console.error('❌ Error adding project:', err)
     });
   }
 
-  // START EDIT
+  // START EDITING
   startEdit(project: any) {
     this.isEditing = true;
-    this.editProjectData = { ...project }; // copy object
+    this.editProjectData = { ...project };
   }
 
   // SAVE EDIT
@@ -88,4 +86,10 @@ export class Project implements OnInit {
       error: err => console.error('❌ Error deleting project:', err)
     });
   }
+
+  // CLEAR FORM
+  clearForm() {
+    this.newProject = { name: '', dueDate: '', course: '' };
+  }
+
 }
