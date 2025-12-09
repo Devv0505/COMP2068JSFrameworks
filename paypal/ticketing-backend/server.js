@@ -5,11 +5,11 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-// CORS FIX 
+// CORS SETUP
 app.use(cors({
-  origin: "*",
-  methods: "GET,POST,PUT,DELETE",
-  allowedHeaders: "Content-Type",
+  origin: ["http://localhost:4200", "https://paypal-tq3x.onrender.com"],
+  methods: ["GET", "POST"],
+  credentials: true
 }));
 
 app.use(express.json());

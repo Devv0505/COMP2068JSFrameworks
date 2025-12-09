@@ -1,0 +1,27 @@
+<div class="events-container">
+
+  <h1>Event Ticketing System</h1>
+  <h3>Available Events</h3>
+
+
+
+  <!-- DISPLAY EVENTS -->
+  <div *ngIf="events.length > 0; else noEvents">
+
+    <div *ngFor="let e of events" class="event-card">
+      <h2>{{ e.title }}</h2>
+      <p>{{ e.description }}</p>
+      <p><strong>Date:</strong> {{ e.date }}</p>
+      <p><strong>Price:</strong> {{ e.price }} {{ e.currency }}</p>
+
+      <button (click)="buyTicket(e)">Buy Ticket</button>
+    </div>
+
+  </div>
+
+  <!-- FALLBACK -->
+  <ng-template #noEvents>
+    <p style="color: #777;">No events available at the moment.</p>
+  </ng-template>
+
+</div>

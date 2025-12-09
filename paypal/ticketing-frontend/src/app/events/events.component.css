@@ -1,0 +1,86 @@
+/* Centered white card on light background */
+.events-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px 60px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Page title */
+.events-container h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Subtitle */
+.events-container h3 {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* Message when there are no events */
+.events-container p {
+  margin: 0;
+}
+
+/* List of event cards */
+.event-card {
+  text-align: left;
+  padding: 18px 20px;
+  margin: 15px 0;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.03);
+}
+
+/* Event title */
+.event-card h2 {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Event description */
+.event-card p {
+  margin: 2px 0;
+  color: #4b5563;
+}
+
+/* Strong labels like Date / Price */
+.event-card p strong {
+  color: #111827;
+}
+
+/* Buy Ticket button */
+.event-card button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+}
+
+.event-card button:hover {
+  background: #1d4ed8;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+  transform: translateY(-1px);
+}
+
+.event-card button:active {
+  background: #1e40af;
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(30, 64, 175, 0.4);
+}
+
