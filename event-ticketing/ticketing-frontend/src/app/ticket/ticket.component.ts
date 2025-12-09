@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { environment } from '../environments/environment';  // ✅ IMPORT ENVIRONMENT
+import { environment } from '../../environments/environment';  // ✅ IMPORT ENVIRONMENT
 
 @Component({
   selector: 'app-ticket',

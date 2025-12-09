@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
+
 
 interface EventItem {
   _id: string;
@@ -34,6 +35,7 @@ export class EventsComponent implements OnInit {
 
   // 🚀 Load events from backend
   loadEvents(): void {
+      console.log("Fetching events from:", `${this.backendUrl}/api/events`);
     this.http.get<EventItem[]>(`${this.backendUrl}/api/events`)
       .subscribe({
         next: (data) => {
