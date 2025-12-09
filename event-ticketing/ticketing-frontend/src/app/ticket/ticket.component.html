@@ -1,0 +1,12 @@
+<h1>Your Ticket</h1>
+
+<div *ngIf="ticket; else errorBlock">
+  <p><strong>Ticket ID:</strong> {{ ticket._id }}</p>
+  <p><strong>Event:</strong> {{ ticket.eventId.title }}</p>
+  <p><strong>Payer:</strong> {{ ticket.payerId }}</p>
+  <p><strong>Issued At:</strong> {{ ticket.createdAt | date:'medium' }}</p>
+</div>
+
+<ng-template #errorBlock>
+  <p style="color:red;">{{ errorMessage }}</p>
+</ng-template>

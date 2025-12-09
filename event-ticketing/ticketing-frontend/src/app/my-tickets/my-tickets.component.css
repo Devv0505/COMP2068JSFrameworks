@@ -1,0 +1,30 @@
+h1 {
+  margin-bottom: 20px;
+}
+
+.ticket-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+
+.view-btn {
+  padding: 8px 14px;
+  background: green;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.buy-btn {
+  padding: 10px 16px;
+  background: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
