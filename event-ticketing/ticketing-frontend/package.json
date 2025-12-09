@@ -2,13 +2,11 @@
   "name": "ticketing-frontend",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:ticketing-frontend": "node dist/ticketing-frontend/server/server.mjs"
-  },
+  "ng": "ng",
+  "build": "ng build --configuration production",
+  "start": "node server.js"
+}
+,
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,

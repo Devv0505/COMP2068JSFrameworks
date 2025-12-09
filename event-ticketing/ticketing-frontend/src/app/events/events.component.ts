@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from '../environments/environment';
 
 interface EventItem {
   _id: string;
@@ -21,7 +22,7 @@ interface EventItem {
 })
 export class EventsComponent implements OnInit {
 
-  backendUrl = 'http://localhost:4000';
+  backendUrl = environment.backendUrl;   // ✅ Now using Render backend URL
   events: EventItem[] = [];
   errorMessage = '';
 
@@ -31,11 +32,7 @@ export class EventsComponent implements OnInit {
     this.loadEvents();
   }
 
-  // 🔥 ALWAYS LOAD EVENTS WHEN WE ARRIVE ON THIS PAGE
-  ionViewDidEnter() {
-    this.loadEvents();
-  }
-
+  // 🚀 Load events from backend
   loadEvents(): void {
     this.http.get<EventItem[]>(`${this.backendUrl}/api/events`)
       .subscribe({
@@ -43,15 +40,22 @@ export class EventsComponent implements OnInit {
           this.events = data;
         },
         error: () => {
-          this.errorMessage = 'Could not load events.';
+          this.errorMessage = 'Could not load events from server.';
         }
       });
   }
 
+  // 🟦 BUY TICKET
   buyTicket(event: EventItem): void {
+    this.errorMessage = '';
+
     this.http.post<any>(`${this.backendUrl}/api/paypal/create-order`, { eventId: event._id })
       .subscribe({
         next: (data) => {
+          if (!data?.approvalUrl) {
+            this.errorMessage = "Could not start PayPal checkout.";
+            return;
+          }
           window.open(data.approvalUrl, "_blank");
         },
         error: () => {

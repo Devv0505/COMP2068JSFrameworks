@@ -16,18 +16,26 @@ export class MyTicketsComponent {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    const saved = localStorage.getItem("myTickets");
+    // Load from localStorage safely
+    try {
+      const saved = localStorage.getItem("myTickets");
 
-    if (saved) {
-      this.tickets = JSON.parse(saved);
+      if (saved) {
+        this.tickets = JSON.parse(saved) || [];
 
-      this.totalAmount = this.tickets.reduce((sum, t) => {
-        return sum + (t.event?.price || 0);
-      }, 0);
+        // Calculate total cost
+        this.totalAmount = this.tickets.reduce((sum, t) => {
+          return sum + (t.event?.price || 0);
+        }, 0);
+      }
+    } catch (err) {
+      console.error("LocalStorage parsing error:", err);
+      this.tickets = [];
+      this.totalAmount = 0;
     }
   }
 
-  // ⭐ BACK BUTTON METHOD
+  // ⭐ Return to Events Page
   goBack() {
     this.router.navigate(['/events']);
   }
