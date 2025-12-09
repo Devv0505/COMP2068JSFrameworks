@@ -7,8 +7,8 @@ const distPath = path.join(__dirname, "dist/ticketing-frontend/browser");
 // Serve static files
 app.use(express.static(distPath));
 
-// Angular SPA fallback (Express 5 compatible)
-app.get("/*", (req, res) => {
+// SPA fallback (MUST be regex for Express 5)
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(distPath, "index.html"));
 });
 
