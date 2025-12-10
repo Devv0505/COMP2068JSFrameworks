@@ -3,25 +3,34 @@
   <h1>Event Ticketing System</h1>
   <h3>Available Events</h3>
 
-
+  <!-- SHOW ERROR MESSAGE -->
+  <p *ngIf="errorMessage" style="color:red;">
+    {{ errorMessage }}
+  </p>
 
   <!-- DISPLAY EVENTS -->
   <div *ngIf="events.length > 0; else noEvents">
-
     <div *ngFor="let e of events" class="event-card">
+      
       <h2>{{ e.title }}</h2>
-      <p>{{ e.description }}</p>
+
+      <p *ngIf="e.description">{{ e.description }}</p>
+
       <p><strong>Date:</strong> {{ e.date }}</p>
-      <p><strong>Price:</strong> {{ e.price }} {{ e.currency }}</p>
+
+      <p>
+        <strong>Price:</strong>
+        {{ e.price }} {{ e.currency }}
+      </p>
 
       <button (click)="buyTicket(e)">Buy Ticket</button>
-    </div>
 
+    </div>
   </div>
 
-  <!-- FALLBACK -->
+  <!-- FALLBACK TEMPLATE -->
   <ng-template #noEvents>
-    <p style="color: #777;">No events available at the moment.</p>
+    <p style="color:#777;">No events available at the moment.</p>
   </ng-template>
 
 </div>

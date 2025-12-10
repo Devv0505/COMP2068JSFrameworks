@@ -15,7 +15,8 @@ export class TicketComponent implements OnInit {
 
   ticket: any = null;
   errorMessage = '';
-  backendUrl = environment.backendUrl;  // ✅ USE BACKEND URL FROM ENV
+ apiUrl = environment.backendUrl;
+  // ✅ USE BACKEND URL FROM ENV
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
@@ -27,7 +28,7 @@ export class TicketComponent implements OnInit {
       return;
     }
 
-    this.http.get(`${this.backendUrl}/api/tickets/${id}`)
+    this.http.get(`${this.apiUrl}/api/tickets/${id}`)
       .subscribe({
         next: (data) => this.ticket = data,
         error: () => this.errorMessage = 'Could not load ticket'

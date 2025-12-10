@@ -1,4 +1,3 @@
-// src/app/events/events.component.ts
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
@@ -44,8 +43,8 @@ export class EventsComponent implements OnInit {
     this.http.get<EventItem[]>(url).subscribe({
       next: (data) => {
         console.log("EVENTS LOADED:", data);
-        this.events = [...data];       // very important — new array triggers change detection
-        this.cd.detectChanges();       // force refresh
+        this.events = [...data];   // New array → forces UI refresh
+        this.cd.detectChanges();
       },
       error: (err) => {
         console.error("LOAD ERROR:", err);
@@ -60,11 +59,15 @@ export class EventsComponent implements OnInit {
 
     this.http.post<any>(url, { eventId: event._id }).subscribe({
       next: (data) => {
+        console.log("PAYPAL RESPONSE:", data);
         if (data?.approvalUrl) {
           window.open(data.approvalUrl, "_blank");
+        } else {
+          this.errorMessage = "PayPal approval URL missing.";
         }
       },
-      error: () => {
+      error: (err) => {
+        console.error("PAYPAL ERROR:", err);
         this.errorMessage = "Checkout failed.";
       }
     });

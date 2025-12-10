@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "https://paypal-tq3x.onrender.com/api"
+  backendUrl: "https://paypal-tq3x.onrender.com"
 };

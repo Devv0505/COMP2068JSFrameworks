@@ -1,6 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+
+interface TicketRecord {
+  id: string;
+  event: {
+    _id: string;
+    title: string;
+    price: number;
+    currency: string;
+    date: string;
+  } | null;
+  purchasedAt: string;   // ✅ Add this line
+}
 
 @Component({
   selector: 'app-my-tickets',
@@ -8,35 +20,52 @@ import { Router } from '@angular/router';
   imports: [CommonModule, DatePipe],
   templateUrl: './my-tickets.component.html'
 })
-export class MyTicketsComponent {
+export class MyTicketsComponent implements OnInit {
 
-  tickets: any[] = [];
+  tickets: TicketRecord[] = [];
   totalAmount: number = 0;
 
   constructor(private router: Router) {}
 
-  ngOnInit() {
-    // Load from localStorage safely
+  ngOnInit(): void {
+    this.loadTickets();
+  }
+
+  // ⭐ Load tickets safely from localStorage
+  loadTickets(): void {
     try {
       const saved = localStorage.getItem("myTickets");
 
-      if (saved) {
-        this.tickets = JSON.parse(saved) || [];
-
-        // Calculate total cost
-        this.totalAmount = this.tickets.reduce((sum, t) => {
-          return sum + (t.event?.price || 0);
-        }, 0);
+      if (!saved) {
+        console.warn("No tickets found in localStorage");
+        this.tickets = [];
+        this.totalAmount = 0;
+        return;
       }
+
+      const parsed = JSON.parse(saved);
+
+      // Validate structure
+      if (Array.isArray(parsed)) {
+        this.tickets = parsed;
+      } else {
+        this.tickets = [];
+      }
+
+      // ⭐ Calculate total price
+      this.totalAmount = this.tickets.reduce((sum, t) => {
+        return sum + (t.event?.price || 0);
+      }, 0);
+
     } catch (err) {
-      console.error("LocalStorage parsing error:", err);
+      console.error("LocalStorage parse error:", err);
       this.tickets = [];
       this.totalAmount = 0;
     }
   }
 
-  // ⭐ Return to Events Page
-  goBack() {
+  // ⭐ Navigate back to main events page
+  goBack(): void {
     this.router.navigate(['/events']);
   }
 }
