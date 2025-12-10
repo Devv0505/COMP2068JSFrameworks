@@ -7,7 +7,7 @@ const app = express();
 
 // CORS SETUP
 app.use(cors({
-  origin: ["http://localhost:4200", "https://paypal-tq3x.onrender.com",  "https://paypal-frontend-icc6.onrender.com" ],
+  origin: ["http://localhost:4200", "https://paypalfrontend.onrender.com"],
   methods: ["GET", "POST"],
   credentials: true
 }));
