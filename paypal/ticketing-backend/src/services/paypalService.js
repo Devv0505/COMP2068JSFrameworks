@@ -32,8 +32,10 @@ exports.createOrder = async (event) => {
         }
       ],
       application_context: {
-        return_url: "http://localhost:4200/success",
-        cancel_url: "http://localhost:4200/events"
+        return_url: "https://paypal-frontend-icc6.onrender.com/success",
+        cancel_url: "https://paypal-frontend-icc6.onrender.com/events",
+        brand_name: "Event Ticketing System",
+        user_action: "PAY_NOW"
       }
     },
     {
