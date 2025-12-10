@@ -20,7 +20,8 @@
                 "glob": "**/*",
                 "input": "public",
                 "output": "/"
-              }
+              },
+              "src/static.json"
             ],
             "styles": ["src/styles.css"],
             "scripts": [],
