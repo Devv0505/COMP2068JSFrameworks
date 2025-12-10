@@ -5,7 +5,8 @@
   "description": "Personal portfolio website using Express and HBS",
   "author": "Dev Prajapati",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "build": "ng build --configuration production"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
