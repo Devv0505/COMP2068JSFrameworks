@@ -1,6 +1,0 @@
-{
-  "root": "dist/ticketing-frontend",
-  "routes": {
-    "/*": "index.html"
-  }
-}
